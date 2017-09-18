@@ -48,13 +48,21 @@ The toy robot does not fall off the table during movement.
 This also includes the initial placement of the toy robot.
 Any move that would cause the robot to fall is ignored.
 
+## Installation
+
+```
+gem install maux_robot
+```
+
+## Execution
+
 Example Input and Output:
 
 ```
 # Example a
 echo "PLACE 0,0,NORTH
 MOVE
-REPORT" | bin/toy_robot
+REPORT" | maux_robot
 # Output: 0,1,NORTH
 ```
 
@@ -63,7 +71,7 @@ REPORT" | bin/toy_robot
 # Example b
 echo "PLACE 0,0,NORTH
 LEFT
-REPORT" | bin/toy_robot
+REPORT" | maux_robot
 # Output: 0,0,WEST
 ```
 
@@ -75,8 +83,13 @@ MOVE
 MOVE
 LEFT
 MOVE
-REPORT" | bin/toy_robot
+REPORT" | maux_robot
 # Output: 3,3,NORTH
+```
+
+```
+# Example d
+cat script_file | maux_robot
 ```
 
 ## Acknowledgement

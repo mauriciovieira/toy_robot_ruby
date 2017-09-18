@@ -3,7 +3,7 @@
 module MauxRobot
   # This module holds the MauxRobot version information.
   module Version
-    STRING = '0.0.1'.freeze
+    STRING = '0.0.2'.freeze
 
     MSG = '%s (using Parser %s, running on %s %s %s)'.freeze
 
