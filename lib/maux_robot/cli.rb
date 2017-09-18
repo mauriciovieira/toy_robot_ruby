@@ -19,16 +19,18 @@ module MauxRobot
     def run_script(all_input)
       all_input.split("\n").each do |line_input|
         command = parse(line_input)
-        execute(command)
+        execute(command) if command
       end
     end
 
     def parse(line_input)
       clean_input = line_input.strip.squeeze(' ').split(' ')
       order = sanitize_order(clean_input.shift)
+      return unless order
+
       command = { order: order }
 
-      if order && clean_input.any?
+      if clean_input.any?
         arguments = sanitize_arguments(clean_input.join(''))
         command[:arguments] = arguments
       end
