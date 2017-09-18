@@ -1,5 +1,6 @@
-# toy_robot_ruby
-Toy Robot Simulator in Ruby
+# maux_robot
+
+Maux version of a Toy Robot Simulator in Ruby
 
 ## Description
 
