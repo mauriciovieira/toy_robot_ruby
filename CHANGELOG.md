@@ -1,5 +1,10 @@
 # Change log
 
+## 0.0.3 (2017-09-19)
+
+* Fix typo in Documentation URL
+* Fix breaking CLI test
+
 ## 0.0.2 (2017-09-17)
 
 * Toy Robot working in the command line.
