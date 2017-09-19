@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
 
   if s.respond_to?(:metadata=)
     s.metadata = {
-      'homepage_uri' => 'https://rubocop.readthedocs.io/',
+      'homepage_uri' => 'https://github.com/mauriciovieira/maux_robot/blob/master/README.md',
       'changelog_uri' => 'https://github.com/mauriciovieira/maux_robot/blob/master/CHANGELOG.md',
       'source_code_uri' => 'https://github.com/mauriciovieira/maux_robot/',
       'documentation_uri' => 'https://github.com/mauriciovieira/maux_robot/',
