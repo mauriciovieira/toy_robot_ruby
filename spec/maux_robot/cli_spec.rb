@@ -49,7 +49,7 @@ describe MauxRobot::CLI do
     end
 
     it 'ignores anything else' do
-      expect(subject.parse('blablabla balbla')).to eq(order: nil)
+      expect(subject.parse('blablabla balbla')).to be_nil
     end
   end
 
