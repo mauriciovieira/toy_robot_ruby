@@ -39,10 +39,10 @@ module MauxRobot
     end
 
     def execute(command)
-      if command[:arguments].nil?
-        @robot.send(command[:order])
-      else
+      if command.has_key?(:arguments)
         @robot.send(command[:order], command[:arguments])
+      else
+        @robot.send(command[:order])
       end
     end
 

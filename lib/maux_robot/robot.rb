@@ -13,7 +13,7 @@ module MauxRobot
     def place(x:, y:, face:)
       position = MauxRobot::Position.new(x, y, face)
 
-      if position.valid_direction? and @table.contains?(position)
+      if position.valid_direction? && @table.contains?(position)
         @position = position
       end
     end

@@ -48,21 +48,23 @@ describe MauxRobot::CLI do
       end
     end
 
-    it 'ignores anything else' do
-      expect(subject.parse('blablabla balbla')).to be_nil
+    context 'invalid orders' do
+      it 'ignores anything else' do
+        expect(subject.parse('blablabla balbla')).to be_nil
+      end
     end
   end
 
   describe '#execute' do
-    context 'commands without arguments' do
-      it 'sends proper message to robot' do
+    context 'parsed input without arguments' do
+      it 'should send proper message to robot' do
         expect(subject.robot).to receive(:move)
         subject.execute(order: :move)
       end
     end
 
-    context 'place' do
-      it 'send place command along with arguments' do
+    context 'parsed place command with arguments' do
+      it 'should send proper message to robot' do
         expect(subject.robot).to receive(:place).with(x: '0', y: '2', face: 'EAST')
         subject.execute(order: :place, arguments: { x: '0', y: '2', face: 'EAST' })
       end
