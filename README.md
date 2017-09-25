@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mauriciovieira/maux_robot.svg?branch=master)](https://travis-ci.org/mauriciovieira/maux_robot)
+
 # maux_robot
 
 Maux version of a Toy Robot Simulator in Ruby
