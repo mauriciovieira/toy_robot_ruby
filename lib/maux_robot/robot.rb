@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
+require 'forwardable'
+
 module MauxRobot
 
   # The main class. It executes the actions using its table and position
   class Robot
     attr_reader :position
 
+    extend Forwardable
+    def_delegators :@position, :left, :right
+
     def initialize(table=MauxRobot::Table.new)
       @table = table
+      @position = MauxRobot::NullPosition.new
     end
 
     def place(x:, y:, face:)
@@ -16,14 +22,6 @@ module MauxRobot
       if position.valid_direction? && @table.contains?(position)
         @position = position
       end
-    end
-
-    def left
-      @position&.turn_left
-    end
-
-    def right
-      @position&.turn_right
     end
 
     def move

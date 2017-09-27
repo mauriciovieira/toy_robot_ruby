@@ -36,34 +36,34 @@ describe MauxRobot::Position do
   describe 'rotation' do
     let(:position) { MauxRobot::Position.new(2, 2, :north) }
 
-    context '#turn_left' do
+    context '#left' do
       it 'should rotate counter-clockwise' do
-        position.turn_left
+        position.left
         expect(position.face).to eq(:west)
 
-        position.turn_left
+        position.left
         expect(position.face).to eq(:south)
 
-        position.turn_left
+        position.left
         expect(position.face).to eq(:east)
 
-        position.turn_left
+        position.left
         expect(position.face).to eq(:north)
       end
     end
 
-    context '#turn_right' do
+    context '#right' do
       it 'should rotate clockwise' do
-        position.turn_right
+        position.right
         expect(position.face).to eq(:east)
 
-        position.turn_right
+        position.right
         expect(position.face).to eq(:south)
 
-        position.turn_right
+        position.right
         expect(position.face).to eq(:west)
 
-        position.turn_right
+        position.right
         expect(position.face).to eq(:north)
       end
     end

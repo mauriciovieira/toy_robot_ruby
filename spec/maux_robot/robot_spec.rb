@@ -4,13 +4,14 @@ require 'maux_robot'
 
 describe MauxRobot::Robot do
   subject(:robot) { described_class.new }
+  let(:null_position) { MauxRobot::NullPosition.new }
 
   describe '#place' do
     context 'given a valid place' do
       it 'should have a position' do
         robot.place(x: 0, y: 0, face: :north)
 
-        expect(robot.position).not_to be_nil
+        expect(robot.position).not_to eq null_position
       end
     end
 
@@ -18,7 +19,7 @@ describe MauxRobot::Robot do
       it 'should not have a position' do
         robot.place(x: 5, y: 0, face: :south)
 
-        expect(robot.position).to be_nil
+        expect(robot.position).to eq null_position
       end
     end
 
@@ -26,7 +27,7 @@ describe MauxRobot::Robot do
       it 'should not have a position' do
         robot.place(x: 0, y: 2, face: :south_east)
 
-        expect(robot.position).to be_nil
+        expect(robot.position).to eq null_position
       end
     end
   end
@@ -37,7 +38,7 @@ describe MauxRobot::Robot do
         robot.place(x: 0, y: 2, face: :south_east)
         robot.left
 
-        expect(robot.position).to be_nil
+        expect(robot.position).to eq null_position
       end
     end
 
@@ -57,7 +58,7 @@ describe MauxRobot::Robot do
         robot.place(x: 0, y: 2, face: :north_west)
         robot.right
 
-        expect(robot.position).to be_nil
+        expect(robot.position).to eq null_position
       end
     end
 
@@ -72,6 +73,14 @@ describe MauxRobot::Robot do
   end
 
   describe '#move' do
+    context 'robot not placed' do
+      it 'should silently ignore' do
+        robot.move
+
+        expect(robot.position).to eq null_position
+      end
+    end
+
     context 'to a place on the table' do
       it 'should update its position' do
         robot.place(x: 3, y: 2, face: :north)
