@@ -2,6 +2,11 @@
 
 ## TODO
 
+* Add error handling
+* Implement 'verbose' command
+
+## 0.0.5 (2017-09-27)
+
 * Implement `report json` and `report csv` (default)
 
 ## 0.0.4 (2017-09-26)
