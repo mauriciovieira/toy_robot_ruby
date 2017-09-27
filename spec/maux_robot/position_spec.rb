@@ -119,7 +119,7 @@ describe MauxRobot::Position do
     end
   end
 
-  describe '#to_s' do
+  describe '#report' do
     context 'if x, y and face are defined' do
       let(:position) { MauxRobot::Position.new(5, 0, :north) }
       it 'returns X,Y,FACE' do

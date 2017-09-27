@@ -20,6 +20,8 @@ module MauxRobot
       @x = x.to_i
       @y = y.to_i
       @face = face&.downcase&.to_sym || :invalid
+
+      @format = MauxRobot::Format::Csv.new
     end
 
     def valid_direction?
@@ -47,7 +49,12 @@ module MauxRobot
     end
 
     def to_s
-      "#{@x},#{@y},#{@face.upcase.to_s}"
+      @format.generate(self)
+    end
+
+    def report(format_type: :csv)
+      @format = MauxRobot::Format.from(format_type)
+      puts self
     end
 
     def ==(other)

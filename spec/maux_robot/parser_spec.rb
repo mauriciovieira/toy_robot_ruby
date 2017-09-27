@@ -10,11 +10,11 @@ describe MauxRobot::Parser do
       end
 
       it '#report csv' do
-        expect(subject.parse('REPORT CSV')).to eq(order: :report, arguments: { format: :csv })
+        expect(subject.parse('REPORT CSV')).to eq(order: :report, arguments: { format_type: :csv })
       end
 
       it '#report json' do
-        expect(subject.parse('REPORT JSON')).to eq(order: :report, arguments: { format: :json })
+        expect(subject.parse('REPORT JSON')).to eq(order: :report, arguments: { format_type: :json })
       end
 
       it '#move' do

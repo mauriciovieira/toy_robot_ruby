@@ -9,7 +9,7 @@ module MauxRobot
     attr_reader :position
 
     extend Forwardable
-    def_delegators :@position, :left, :right
+    def_delegators :@position, :left, :right, :report
 
     def initialize(table=MauxRobot::Table.new)
       @table = table
@@ -30,10 +30,6 @@ module MauxRobot
       if @table.contains?(next_position)
         @position = next_position
       end
-    end
-
-    def report
-      puts @position if @position
     end
   end
 end
