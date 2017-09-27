@@ -1,5 +1,13 @@
 # Change log
 
+## TODO
+
+* Implement `report json` and `report csv` (default)
+
+## 0.0.4 (2017-09-26)
+
+* Fix 'MOVE' command to not break when the robot was not placed
+
 ## 0.0.3 (2017-09-19)
 
 * Fix typo in Documentation URL
