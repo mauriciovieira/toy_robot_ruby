@@ -1,7 +1,5 @@
  # frozen_string_literal: true
 
-require 'maux_robot'
-
 describe MauxRobot::Parser do
   describe '#parse' do
     context 'valid orders' do

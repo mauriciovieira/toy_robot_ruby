@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'maux_robot'
-
 describe MauxRobot::Position do
   describe '#initialize' do
     context 'given text input' do

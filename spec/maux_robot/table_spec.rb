@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'maux_robot'
-
 describe MauxRobot::Table do
   subject(:table) { described_class.new(x: [-1, 2], y: [3, 6]) }
 

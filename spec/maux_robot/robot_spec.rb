@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'maux_robot'
-
 describe MauxRobot::Robot do
   subject(:robot) { described_class.new }
   let(:null_position) { MauxRobot::NullPosition.new }
