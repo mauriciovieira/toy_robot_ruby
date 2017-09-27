@@ -117,25 +117,26 @@ describe MauxRobot::Position do
     end
   end
 
-  describe '#to_s' do
+  describe '#report' do
     context 'if x, y and face are defined' do
       let(:position) { MauxRobot::Position.new(5, 0, :north) }
-      it 'returns X,Y,FACE' do
-        expect(position.to_s).to eq('5,0,NORTH')
+
+      it 'prints X,Y,FACE' do
+        expect { position.report }.to output("5,0,NORTH\n").to_stdout
       end
     end
 
     context 'if only face is defined' do
       let(:position) { MauxRobot::Position.new(nil, nil, 'SOUTH') }
-      it 'returns 0,0,FACE' do
-        expect(position.to_s).to eq('0,0,SOUTH')
+      it 'prints 0,0,FACE' do
+        expect { position.report }.to output("0,0,SOUTH\n").to_stdout
       end
     end
 
     context 'if face is not defined' do
       let(:position) { MauxRobot::Position.new(5, 0, nil) }
-      it 'returns X,Y,INVALID' do
-        expect(position.to_s).to eq('5,0,INVALID')
+      it 'prints X,Y,INVALID' do
+        expect { position.report }.to output("5,0,INVALID\n").to_stdout
       end
     end
   end

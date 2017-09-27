@@ -34,7 +34,7 @@ module MauxRobot
         arguments = arguments.delete(' ').split(',')
         { x: arguments[0], y: arguments[1], face: arguments[2] }
       when :report
-        { format: arguments.downcase.to_sym }
+        { format_type: arguments.downcase.to_sym }
       end
     end
   end

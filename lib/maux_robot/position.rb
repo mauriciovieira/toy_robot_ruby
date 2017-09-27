@@ -46,8 +46,9 @@ module MauxRobot
       Position.new(x, y, @face)
     end
 
-    def to_s
-      "#{@x},#{@y},#{@face.upcase.to_s}"
+    def report(format_type: :csv)
+      formatter = MauxRobot::Formatter.from(format_type)
+      puts formatter.generate(self)
     end
 
     def ==(other)
