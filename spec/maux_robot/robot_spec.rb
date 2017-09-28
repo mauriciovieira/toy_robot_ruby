@@ -14,28 +14,22 @@ describe MauxRobot::Robot do
     end
 
     context 'given an invalid place' do
-      it 'should not have a position' do
-        robot.place(x: 5, y: 0, face: :south)
-
-        expect(robot.position).to eq null_position
+      it 'should raise NotOkToGo error' do
+        expect { robot.place(x: 5, y: 0, face: :south) }.to raise_error MauxRobot::NotOkToGo
       end
     end
 
     context 'given an invalid direction' do
-      it 'should not have a position' do
-        robot.place(x: 0, y: 2, face: :south_east)
-
-        expect(robot.position).to eq null_position
+      it 'should raise NotOkToGo error' do
+        expect { robot.place(x: 0, y: 2, face: :south_east) }.to raise_error MauxRobot::NotOkToGo
       end
     end
   end
 
   describe '#left' do
     context 'robot not placed' do
-      it 'should silently ignore' do
-        robot.place(x: 0, y: 2, face: :south_east)
-        robot.left
-
+      it 'should raise RobotNotPlacedYet error' do
+        expect { robot.left }.to raise_error MauxRobot::RobotNotPlacedYet
         expect(robot.position).to eq null_position
       end
     end
@@ -52,9 +46,8 @@ describe MauxRobot::Robot do
 
   describe '#right' do
     context 'robot not placed' do
-      it 'should silently ignore' do
-        robot.place(x: 0, y: 2, face: :north_west)
-        robot.right
+      it 'should raise RobotNotPlacedYet error' do
+        expect { robot.right }.to raise_error MauxRobot::RobotNotPlacedYet
 
         expect(robot.position).to eq null_position
       end
@@ -72,9 +65,8 @@ describe MauxRobot::Robot do
 
   describe '#move' do
     context 'robot not placed' do
-      it 'should silently ignore' do
-        robot.move
-
+      it 'should raise RobotNotPlacedYet error' do
+        expect { robot.right }.to raise_error MauxRobot::RobotNotPlacedYet
         expect(robot.position).to eq null_position
       end
     end
@@ -93,7 +85,8 @@ describe MauxRobot::Robot do
     context 'to outside the table' do
       it 'should stay where it is' do
         robot.place(x: 0, y: 0, face: :south)
-        robot.move
+
+        expect { robot.move }.to raise_error MauxRobot::NotOkToGo
 
         expect(robot.position.x).to eq(0)
         expect(robot.position.y).to eq(0)
