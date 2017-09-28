@@ -1,9 +1,8 @@
 # Change log
 
-## TODO
+## 0.1.0 (2017-09-28)
 
-* Add error handling
-* Implement 'verbose' command
+* Implement `verbose` command using error handling.
 
 ## 0.0.5 (2017-09-27)
 
