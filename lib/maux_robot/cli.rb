@@ -17,7 +17,11 @@ module MauxRobot
     def run_script(all_input)
       all_input.split("\n").each do |line_input|
         command = parse(line_input)
-        execute(command) if command
+        begin
+          execute(command) if command
+        rescue MauxRobot::RobotError => e
+          puts e if @robot.talkative
+        end
       end
     end
 

@@ -24,7 +24,8 @@ PLACE X,Y,F
 MOVE
 LEFT
 RIGHT
-REPORT
+REPORT [csv|json]
+VERBOSE
 ```
 
 * `PLACE` will put the toy robot on the table in position X,Y
@@ -40,7 +41,8 @@ in the direction it is currently facing.
 * `LEFT` and `RIGHT` will rotate the robot 90 degrees
 in the specified direction
 without changing the position of the robot.
-* `REPORT` will announce the X,Y and F of the robot.
+* `REPORT` will announce the X,Y and F of the robot. If `csv` or `json` is passed, it formats the whereabouts accordingly. The default format is `csv`.
+* `VERBOSE` will turn the error messages (talkative mode) on or off. The robot starts with talkative mode set to off.
 
 * A robot that is not on the table ignores the `MOVE`, `LEFT`, `RIGHT` and `REPORT` commands.
 

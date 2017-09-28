@@ -4,15 +4,17 @@ require 'forwardable'
 
 module MauxRobot
 
+  class RobotError < StandardError; end
+
   # Error to notify that the robot was not placed yet
-  class RobotNotPlacedYet < StandardError
+  class RobotNotPlacedYet < RobotError
     def initialize
       super('The robot was not placed yet!')
     end
   end
 
   # Error to notify that the position is/would be outside the table
-  class NotOkToGo < StandardError
+  class NotOkToGo < RobotError
     def initialize(position)
       super("It's not ok to go to #{position.x},#{position.y}")
     end
@@ -58,7 +60,7 @@ module MauxRobot
       end
     end
 
-    def report(format_type=nil)
+    def report(format_type: :csv)
       robot_placed? do
         @position.report(format_type)
       end
@@ -66,6 +68,8 @@ module MauxRobot
 
     def verbose
       @talkative = !@talkative
+      is_not = @talkative ? 'is' : 'is not'
+      puts "Robot #{is_not} talkative now."
     end
 
     private

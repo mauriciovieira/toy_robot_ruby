@@ -46,7 +46,7 @@ module MauxRobot
       Position.new(x, y, @face)
     end
 
-    def report(format_type: :csv)
+    def report(format_type=:csv)
       formatter = MauxRobot::Formatter.from(format_type)
       puts formatter.generate(self)
     end
