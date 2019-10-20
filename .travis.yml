@@ -1,2 +1,2 @@
 language: ruby
-rvm: 2.4.1
+rvm: 2.6.3
