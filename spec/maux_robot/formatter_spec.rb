@@ -1,9 +1,9 @@
- # frozen_string_literal: true
+# frozen_string_literal: true
 
 describe MauxRobot::Formatter do
-  context "#from" do
-    describe "valid format_types" do
-      it "returns csv formatter" do
+  context '#from' do
+    describe 'valid format_types' do
+      it 'returns csv formatter' do
         expect(subject.from(:csv).class).to eq(MauxRobot::Formatter::Csv)
       end
 

@@ -3,7 +3,6 @@
 require 'maux_robot'
 
 describe MauxRobot::CLI do
-
   describe '#execute' do
     context 'parsed input without arguments' do
       it 'should send proper message to robot' do

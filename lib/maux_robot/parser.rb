@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module MauxRobot
-
   class Parser
     ALLOWED_ORDERS = %i[left right move place report verbose].freeze
 
@@ -19,7 +18,6 @@ module MauxRobot
 
       command
     end
-
 
     private
 
@@ -39,6 +37,3 @@ module MauxRobot
     end
   end
 end
-
-
-

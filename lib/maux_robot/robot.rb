@@ -3,7 +3,6 @@
 require 'forwardable'
 
 module MauxRobot
-
   class RobotError < StandardError; end
 
   # Error to notify that the robot was not placed yet
@@ -24,7 +23,7 @@ module MauxRobot
   class Robot
     attr_reader :position, :talkative
 
-    def initialize(table=MauxRobot::Table.new)
+    def initialize(table = MauxRobot::Table.new)
       @table = table
       @position = MauxRobot::NullPosition.new
       @talkative = false
@@ -78,15 +77,15 @@ module MauxRobot
       if @table.contains?(position)
         yield
       else
-        raise NotOkToGo.new(position)
+        raise NotOkToGo, position
       end
     end
 
     def robot_placed?
-      unless @position.class == MauxRobot::NullPosition
-         yield
-      else
+      if @position.class == MauxRobot::NullPosition
         raise RobotNotPlacedYet
+      else
+        yield
       end
     end
   end

@@ -1,5 +1,6 @@
-module MauxRobot
+# frozen_string_literal: true
 
+module MauxRobot
   module Formatter
     def self.from(format_type)
       case format_type
