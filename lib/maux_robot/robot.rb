@@ -3,7 +3,6 @@
 require 'forwardable'
 
 module MauxRobot
-
   class RobotError < StandardError; end
 
   # Error to notify that the robot was not placed yet
@@ -24,18 +23,19 @@ module MauxRobot
   class Robot
     attr_reader :position, :talkative
 
-    def initialize(table=MauxRobot::Table.new)
+    def initialize(table = MauxRobot::Table.new)
       @table = table
       @position = MauxRobot::NullPosition.new
       @talkative = false
     end
 
-    def place(x:, y:, face:)
+    def place(x:, y:, face:) # rubocop:disable Naming/UncommunicativeMethodParamName
       position = MauxRobot::Position.new(x, y, face)
 
       ok_to_go?(position) do
         @position = position
       end
+      @position
     end
 
     def move
@@ -45,6 +45,8 @@ module MauxRobot
         ok_to_go?(next_position) do
           @position = next_position
         end
+
+        @position
       end
     end
 
@@ -75,19 +77,15 @@ module MauxRobot
     private
 
     def ok_to_go?(position)
-      if @table.contains?(position)
-        yield
-      else
-        raise NotOkToGo.new(position)
-      end
+      raise NotOkToGo, position unless @table.contains?(position)
+
+      yield
     end
 
     def robot_placed?
-      unless @position.class == MauxRobot::NullPosition
-         yield
-      else
-        raise RobotNotPlacedYet
-      end
+      raise RobotNotPlacedYet if @position.class == MauxRobot::NullPosition
+
+      yield
     end
   end
 end

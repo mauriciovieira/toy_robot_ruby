@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module MauxRobot
-
   # The CLI is a class responsible of handling command line interface
   class CLI
     attr_reader :robot
@@ -30,7 +29,7 @@ module MauxRobot
     end
 
     def execute(command)
-      if command.has_key?(:arguments)
+      if command.key?(:arguments)
         @robot.send(command[:order], command[:arguments])
       else
         @robot.send(command[:order])

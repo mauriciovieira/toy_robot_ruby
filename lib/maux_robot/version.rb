@@ -3,9 +3,9 @@
 module MauxRobot
   # This module holds the MauxRobot version information.
   module Version
-    STRING = '0.1.0'.freeze
+    STRING = '0.1.0'
 
-    MSG = '%s (using Parser %s, running on %s %s %s)'.freeze
+    MSG = '%s (using Parser %s, running on %s %s %s)'
 
     def self.version(debug = false)
       if debug

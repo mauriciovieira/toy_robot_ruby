@@ -3,20 +3,19 @@
 require 'maux_robot'
 
 module MauxRobot
-
   # This class represents the Robot position on the table
   class Position
     attr_reader :x, :y, :face
 
-    POSSIBLE_DIRECTIONS = [:north, :west, :south, :east]
+    POSSIBLE_DIRECTIONS = %i[north west south east].freeze
     POSSIBLE_MOVEMENTS = {
-      north: { x:  0, y:  1 },
-      west:  { x: -1, y:  0 },
-      south: { x:  0, y: -1 },
-      east:  { x:  1, y:  0 },
-    }
+      north: { x: 0, y:  1 },
+      west: { x: -1, y:  0 },
+      south: { x: 0, y: -1 },
+      east: { x: 1, y: 0 }
+    }.freeze
 
-    def initialize(x, y, face)
+    def initialize(x, y, face) # rubocop:disable Naming/UncommunicativeMethodParamName
       @x = x.to_i
       @y = y.to_i
       @face = face&.downcase&.to_sym || :invalid
@@ -28,13 +27,15 @@ module MauxRobot
 
     def left
       return self unless valid_direction?
-      next_direction_index = ( POSSIBLE_DIRECTIONS.index(@face) + 1 ) % 4
+
+      next_direction_index = (POSSIBLE_DIRECTIONS.index(@face) + 1) % 4
       @face = POSSIBLE_DIRECTIONS[next_direction_index]
     end
 
     def right
       return self unless valid_direction?
-      next_direction_index = ( POSSIBLE_DIRECTIONS.index(@face) - 1 )
+
+      next_direction_index = (POSSIBLE_DIRECTIONS.index(@face) - 1)
       @face = POSSIBLE_DIRECTIONS[next_direction_index]
     end
 
@@ -46,7 +47,7 @@ module MauxRobot
       Position.new(x, y, @face)
     end
 
-    def report(format_type=:csv)
+    def report(format_type = :csv)
       formatter = MauxRobot::Formatter.from(format_type)
       puts formatter.generate(self)
     end

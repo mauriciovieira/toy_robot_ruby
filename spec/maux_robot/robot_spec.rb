@@ -1,41 +1,42 @@
 # frozen_string_literal: true
 
-describe MauxRobot::Robot do
+describe MauxRobot::Robot do # rubocop:disable Metrics/BlockLength
   subject(:robot) { described_class.new }
+
   let(:null_position) { MauxRobot::NullPosition.new }
 
   describe '#place' do
-    context 'given a valid place' do
-      it 'should have a position' do
+    context 'when given a valid place' do
+      it 'has a position' do
         robot.place(x: 0, y: 0, face: :north)
 
         expect(robot.position).not_to eq null_position
       end
     end
 
-    context 'given an invalid place' do
-      it 'should raise NotOkToGo error' do
+    context 'when given an invalid place' do
+      it 'raises NotOkToGo error' do
         expect { robot.place(x: 5, y: 0, face: :south) }.to raise_error MauxRobot::NotOkToGo
       end
     end
 
-    context 'given an invalid direction' do
-      it 'should raise NotOkToGo error' do
+    context 'when given an invalid direction' do
+      it 'raises NotOkToGo error' do
         expect { robot.place(x: 0, y: 2, face: :south_east) }.to raise_error MauxRobot::NotOkToGo
       end
     end
   end
 
   describe '#left' do
-    context 'robot not placed' do
-      it 'should raise RobotNotPlacedYet error' do
+    context 'when robot is not placed' do
+      it 'raises RobotNotPlacedYet error' do
         expect { robot.left }.to raise_error MauxRobot::RobotNotPlacedYet
         expect(robot.position).to eq null_position
       end
     end
 
-    context 'robot placed' do
-      it 'should rotate accordingly' do
+    context 'when robot is placed' do
+      it 'rotates accordingly' do
         robot.place(x: 1, y: 2, face: :south)
         robot.left
 
@@ -45,16 +46,16 @@ describe MauxRobot::Robot do
   end
 
   describe '#right' do
-    context 'robot not placed' do
-      it 'should raise RobotNotPlacedYet error' do
+    context 'when robot is not placed' do
+      it 'raises RobotNotPlacedYet error' do
         expect { robot.right }.to raise_error MauxRobot::RobotNotPlacedYet
 
         expect(robot.position).to eq null_position
       end
     end
 
-    context 'robot placed' do
-      it 'should rotate accordingly' do
+    context 'with robot placed' do
+      it 'rotates accordingly' do
         robot.place(x: 3, y: 2, face: :north)
         robot.right
 
@@ -64,15 +65,15 @@ describe MauxRobot::Robot do
   end
 
   describe '#move' do
-    context 'robot not placed' do
-      it 'should raise RobotNotPlacedYet error' do
+    context 'with robot not placed' do
+      it 'raises RobotNotPlacedYet error' do
         expect { robot.right }.to raise_error MauxRobot::RobotNotPlacedYet
         expect(robot.position).to eq null_position
       end
     end
 
-    context 'to a place on the table' do
-      it 'should update its position' do
+    context 'when placing on the table' do
+      it 'updates its position' do
         robot.place(x: 3, y: 2, face: :north)
         robot.move
 
@@ -82,8 +83,8 @@ describe MauxRobot::Robot do
       end
     end
 
-    context 'to outside the table' do
-      it 'should stay where it is' do
+    context 'when outside the table' do
+      it 'stays where it is' do
         robot.place(x: 0, y: 0, face: :south)
 
         expect { robot.move }.to raise_error MauxRobot::NotOkToGo

@@ -2,11 +2,16 @@
 
 require 'json'
 
-module MauxRobot::Formatter
-
-  class Json
-    def generate(position)
-      JSON.generate({x: position.x, y: position.y, face: position.face.upcase.to_s})
+module MauxRobot
+  module Formatter
+    class Json
+      def generate(position)
+        JSON.generate(
+          x: position.x,
+          y: position.y,
+          face: position.face.upcase.to_s
+        )
+      end
     end
   end
 end

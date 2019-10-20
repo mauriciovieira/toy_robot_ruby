@@ -1,0 +1,18 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+
+Metrics/LineLength:
+  Max: 120
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
