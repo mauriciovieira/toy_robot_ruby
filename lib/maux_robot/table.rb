@@ -3,7 +3,7 @@
 module MauxRobot
   # This class represents a table according to simulation rules
   class Table
-    def initialize(x: [0, 4], y: [0, 4])
+    def initialize(x: [0, 4], y: [0, 4]) # rubocop:disable Naming/UncommunicativeMethodParamName
       @x = x
       @y = y
     end

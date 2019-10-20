@@ -15,7 +15,7 @@ module MauxRobot
       east: { x: 1, y: 0 }
     }.freeze
 
-    def initialize(x, y, face)
+    def initialize(x, y, face) # rubocop:disable Naming/UncommunicativeMethodParamName
       @x = x.to_i
       @y = y.to_i
       @face = face&.downcase&.to_sym || :invalid

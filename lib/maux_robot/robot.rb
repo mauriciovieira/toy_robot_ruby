@@ -29,12 +29,13 @@ module MauxRobot
       @talkative = false
     end
 
-    def place(x:, y:, face:)
+    def place(x:, y:, face:) # rubocop:disable Naming/UncommunicativeMethodParamName
       position = MauxRobot::Position.new(x, y, face)
 
       ok_to_go?(position) do
         @position = position
       end
+      @position
     end
 
     def move
@@ -44,6 +45,8 @@ module MauxRobot
         ok_to_go?(next_position) do
           @position = next_position
         end
+
+        @position
       end
     end
 
@@ -74,19 +77,15 @@ module MauxRobot
     private
 
     def ok_to_go?(position)
-      if @table.contains?(position)
-        yield
-      else
-        raise NotOkToGo, position
-      end
+      raise NotOkToGo, position unless @table.contains?(position)
+
+      yield
     end
 
     def robot_placed?
-      if @position.class == MauxRobot::NullPosition
-        raise RobotNotPlacedYet
-      else
-        yield
-      end
+      raise RobotNotPlacedYet if @position.class == MauxRobot::NullPosition
+
+      yield
     end
   end
 end

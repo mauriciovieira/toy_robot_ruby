@@ -3,18 +3,21 @@
 require 'maux_robot'
 
 describe MauxRobot::CLI do
+  subject(:cli) { described_class.new }
+
   describe '#execute' do
-    context 'parsed input without arguments' do
-      it 'should send proper message to robot' do
-        expect(subject.robot).to receive(:move)
-        subject.execute(order: :move)
+    let(:position) { MauxRobot::Position.new(0, 2, :east) }
+
+    context 'when input is parsed without arguments' do
+      it 'sends proper message to robot' do
+        allow(cli.robot).to receive(:move).and_return(position)
+        expect(cli.execute(order: :move)).to eq(position)
       end
     end
 
-    context 'parsed place command with arguments' do
-      it 'should send proper message to robot' do
-        expect(subject.robot).to receive(:place).with(x: '0', y: '2', face: 'EAST')
-        subject.execute(order: :place, arguments: { x: '0', y: '2', face: 'EAST' })
+    context 'when place is parsed command with arguments' do
+      it 'sends proper message to robot' do
+        expect(cli.execute(order: :place, arguments: { x: '0', y: '2', face: 'EAST' })).to eq(position)
       end
     end
   end
