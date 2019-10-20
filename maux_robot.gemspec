@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('lib', __dir__)
 require 'maux_robot/version'
 require 'English'
-
-# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |s|
   s.name = 'maux_robot'
   s.version = MauxRobot::Version::STRING
@@ -35,5 +33,6 @@ Gem::Specification.new do |s|
     }
   end
 
-  s.add_development_dependency('rspec', '~> 3.6', '>= 3.6.0')
+  s.add_development_dependency('rspec', '~> 3.9', '>= 3.9.0')
+  s.add_development_dependency('rubocop', '~> 0.75', '>= 0.75.0')
 end

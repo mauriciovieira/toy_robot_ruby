@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 gemspec
 
-ruby '2.4.1'
+ruby '2.6.3'
 
 group :development do
-  gem 'rspec'
   gem 'rake'
+  gem 'rspec'
+  gem 'rubocop'
 end
