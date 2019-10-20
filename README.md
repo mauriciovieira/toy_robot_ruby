@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/mauriciovieira/maux_robot.svg?branch=master)](https://travis-ci.org/mauriciovieira/maux_robot)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/b45a7baf1130fb9aa8f6/maintainability)](https://codeclimate.com/github/mauriciovieira/maux_robot/maintainability)
-
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b45a7baf1130fb9aa8f6/test_coverage)](https://codeclimate.com/github/mauriciovieira/maux_robot/test_coverage)
 
 # maux_robot
