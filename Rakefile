@@ -13,6 +13,7 @@ end
 require 'rake'
 require 'rspec/core'
 require 'rspec/core/rake_task'
+require 'standard/rake'
 
 RSpec::Core::RakeTask.new(:spec) { |t| t.ruby_opts = '-E UTF-8' }
 task default: :spec

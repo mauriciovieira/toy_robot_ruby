@@ -33,5 +33,5 @@ Gem::Specification.new do |s|
     }
   end
 
-  s.add_development_dependency('rubocop-rspec', '~> 1.3.6', '>= 1.3.6')
+  s.add_development_dependency('standard')
 end
