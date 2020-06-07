@@ -33,5 +33,5 @@ Gem::Specification.new do |s|
     }
   end
 
-  s.add_development_dependency("standard")
+  s.add_development_dependency("standard", "~> 0.4.7")
 end
