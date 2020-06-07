@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'forwardable'
+require "forwardable"
 
 module MauxRobot
   class RobotError < StandardError; end
@@ -8,7 +8,7 @@ module MauxRobot
   # Error to notify that the robot was not placed yet
   class RobotNotPlacedYet < RobotError
     def initialize
-      super('The robot was not placed yet!')
+      super("The robot was not placed yet!")
     end
   end
 
@@ -70,7 +70,7 @@ module MauxRobot
 
     def verbose
       @talkative = !@talkative
-      is_not = @talkative ? 'is' : 'is not'
+      is_not = @talkative ? "is" : "is not"
       puts "Robot #{is_not} talkative now."
     end
 

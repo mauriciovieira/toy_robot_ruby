@@ -5,14 +5,14 @@ module MauxRobot
     ALLOWED_ORDERS = %i[left right move place report verbose].freeze
 
     def parse(line_input)
-      clean_input = line_input.strip.squeeze(' ').split(' ')
+      clean_input = line_input.strip.squeeze(" ").split(" ")
       order = sanitize_order(clean_input.shift)
       return unless order
 
-      command = { order: order }
+      command = {order: order}
 
       if clean_input.any?
-        arguments = sanitize_arguments(order, clean_input.join(''))
+        arguments = sanitize_arguments(order, clean_input.join(""))
         command[:arguments] = arguments
       end
 
@@ -29,10 +29,10 @@ module MauxRobot
     def sanitize_arguments(order, arguments)
       case order
       when :place
-        arguments = arguments.delete(' ').split(',')
-        { x: arguments[0], y: arguments[1], face: arguments[2] }
+        arguments = arguments.delete(" ").split(",")
+        {x: arguments[0], y: arguments[1], face: arguments[2]}
       when :report
-        { format_type: arguments.downcase.to_sym }
+        {format_type: arguments.downcase.to_sym}
       end
     end
   end

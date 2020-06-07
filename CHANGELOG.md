@@ -1,5 +1,9 @@
 # Change log
 
+## 0.2.0 (2020-06-07)
+
+* Use standard ruby code style
+
 ## 0.1.0 (2017-09-28)
 
 * Implement `verbose` command using error handling.

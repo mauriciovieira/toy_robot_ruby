@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'maux_robot'
+require "maux_robot"
 
 module MauxRobot
   # This class represents the Robot position on the table
@@ -9,10 +9,10 @@ module MauxRobot
 
     POSSIBLE_DIRECTIONS = %i[north west south east].freeze
     POSSIBLE_MOVEMENTS = {
-      north: { x: 0, y:  1 },
-      west: { x: -1, y:  0 },
-      south: { x: 0, y: -1 },
-      east: { x: 1, y: 0 }
+      north: {x: 0, y: 1},
+      west: {x: -1, y: 0},
+      south: {x: 0, y: -1},
+      east: {x: 1, y: 0}
     }.freeze
 
     def initialize(x, y, face) # rubocop:disable Naming/UncommunicativeMethodParamName

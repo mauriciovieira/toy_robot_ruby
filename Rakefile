@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require 'rubygems'
-require 'bundler'
-require 'bundler/gem_tasks'
+require "rubygems"
+require "bundler"
+require "bundler/gem_tasks"
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
   warn e.message
-  warn 'Run `bundle install` to install missing gems'
+  warn "Run `bundle install` to install missing gems"
   exit e.status_code
 end
-require 'rake'
-require 'rspec/core'
-require 'rspec/core/rake_task'
-require 'standard/rake'
+require "rake"
+require "rspec/core"
+require "rspec/core/rake_task"
+require "standard/rake"
 
-RSpec::Core::RakeTask.new(:spec) { |t| t.ruby_opts = '-E UTF-8' }
+RSpec::Core::RakeTask.new(:spec) { |t| t.ruby_opts = "-E UTF-8" }
 task default: :spec
