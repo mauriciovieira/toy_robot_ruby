@@ -1,7 +1,10 @@
 sudo: false
 language: ruby
-rvm: 2.6.3
+rvm:
+  - 2.5.8
+  - 2.6.6
+  - 2.7.1
 
 script:
-  - bundle exec standard
-  - bundle exec rspec
+  - bundle exec rake standard
+  - bundle exec rake
