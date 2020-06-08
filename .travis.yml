@@ -3,5 +3,5 @@ language: ruby
 rvm: 2.6.3
 
 script:
+  - bundle exec standard
   - bundle exec rspec
-  - bundle exec rubocop
