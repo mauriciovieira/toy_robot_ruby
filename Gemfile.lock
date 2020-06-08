@@ -54,7 +54,7 @@ DEPENDENCIES
   maux_robot!
   rake
   rspec
-  standard (~> 0.4.7)
+  standard
 
 BUNDLED WITH
    1.17.2
