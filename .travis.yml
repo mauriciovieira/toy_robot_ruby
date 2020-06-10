@@ -4,5 +4,4 @@ rvm:
   - 2.6.6
 
 script:
-  - bundle exec rake standard
   - bundle exec rake
