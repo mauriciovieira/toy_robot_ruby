@@ -1,5 +1,9 @@
 # Change log
 
+## 0.2.1 (2020-06-11)
+
+* Improve CI configuration
+
 ## 0.2.0 (2020-06-07)
 
 * Use standard ruby code style

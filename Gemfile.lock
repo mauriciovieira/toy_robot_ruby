@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    maux_robot (0.2.0)
+    maux_robot (0.2.1)
 
 GEM
   remote: https://rubygems.org/
