@@ -7,5 +7,5 @@ gemspec
 group :development do
   gem "rake"
   gem "rspec"
-  gem "standard"
+  gem "standard", ">= 0.4.7"
 end
